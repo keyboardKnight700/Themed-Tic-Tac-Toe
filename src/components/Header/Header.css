@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Walter+Turncoat&display=swap");
+
+header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, auto) 1fr minmax(auto, auto);
+  place-items: center;
+
+  /* border: 5px solid blue; */
+  position: relative;
+}
+
+header h1 {
+  grid-row: 1 / 1;
+  grid-column: 2 / 2;
+
+  text-align: center;
+  white-space: nowrap;
+
+  font-family: "Fredericka the Great", "Walter Turncoat", cursive, serif;
+  font-size: clamp(3rem, 10vw, 10rem);
+  color: #4b4949;
+  letter-spacing: -0.025em;
+  padding-inline: clamp(1rem, 5vw, 10rem);
+  padding-block: clamp(1rem, 2vw, 2rem);
+
+  z-index: 1;
+}
+
+header img {
+  grid-row: 1 / 1;
+  grid-column: 2 / 2;
+
+  margin-inline: auto;
+  max-width: 100%;
+  z-index: -1;
+  opacity: 0.6;
+}
