@@ -1,3 +1,5 @@
+@import url(./components/Header/Header.css);
+
 :root {
   /* ===== Classic Theme ===== */
   --classicTheme-bg: #fffdf7;
