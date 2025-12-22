@@ -70,3 +70,17 @@ header img {
   width: 60vw;
   height: auto;
 }
+
+.gameSettingsContainer {
+  display: flex;
+  width: 60vw;
+  margin-inline: auto;
+  /*   align-items: center;
+  justify-items: center; */
+}
+
+.gameSettingsBtn {
+  width: auto;
+  height: auto;
+  aspect-ratio: 1/1;
+}
