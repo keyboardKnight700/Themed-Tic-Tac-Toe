@@ -17,8 +17,12 @@
 
 body {
   background-color: var(--classicTheme-bg);
-  min-height: max(884px, 100dvh);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+  overflow: hidden;
+  padding: 1vh 2vw;
 }
 
 /* ================================================= */
@@ -26,38 +30,35 @@ body {
 /* ================================================= */
 
 header {
-  width: 100%;
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: minmax(auto, auto) 1fr minmax(auto, auto);
   place-items: center;
 
-  /* border: 5px solid blue; */
+  width: 100%;
+  max-height: 20vh;
   position: relative;
 }
 
 header h1 {
   grid-row: 1 / 1;
   grid-column: 2 / 2;
-
   text-align: center;
   white-space: nowrap;
-
   font-family: "Fredericka the Great", "Walter Turncoat", cursive, serif;
-  font-size: clamp(3rem, 10vw, 10rem);
+  font-size: clamp(2rem, 8vh, 6rem);
   color: #4b4949;
   letter-spacing: -0.025em;
-  padding-inline: clamp(1rem, 5vw, 10rem);
-  padding-block: clamp(1rem, 2vw, 2rem);
-
+  padding: 1vh 2vw;
   z-index: 1;
 }
 
 header img {
   grid-row: 1 / 1;
   grid-column: 2 / 2;
-
   margin-inline: auto;
   max-width: 100%;
+  max-height: clamp(2rem, 8vh, 6rem);
   z-index: -1;
   opacity: 0.6;
 }
@@ -67,16 +68,20 @@ header img {
 /* ===================================================== */
 
 .gamebaordContainer {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block: 70px;
-  /* border: 2px solid black; */
+
+  min-height: 0;
+  padding: 2vh 0;
 }
 
 .gamebaordContainer .gameboard {
-  width: 60vw;
+  width: min(60vw, 60vh);
   height: auto;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* ====================================================== */
@@ -84,15 +89,14 @@ header img {
 /* ======================================================*/
 
 .gameSettingsContainer {
-  display: flex;
-  width: 60vw;
-  margin-inline: auto;
-  /*   align-items: center;
-  justify-items: center; */
+  flex-shrink: 0;
+  /* width: 60vw; */
 }
 
-.gameSettingsBtn {
-  width: auto;
-  height: auto;
-  aspect-ratio: 1/1;
+.settingsBtn {
+  position: fixed;
+  bottom: 1.5vh;
+  right: 1.5vh;
+  max-height: 12vh;
+  cursor: pointer;
 }
