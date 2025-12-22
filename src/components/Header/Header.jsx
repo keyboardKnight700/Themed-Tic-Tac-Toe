@@ -1,4 +1,4 @@
-import image from "../Header/Header-bg.svg";
+import image from "../../assets/Header-bg.svg";
 
 export default function Header() {
   console.log(image);
