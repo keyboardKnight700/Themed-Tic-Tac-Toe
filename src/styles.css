@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Walter+Turncoat&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Sniglet:wght@800&display=swap");
+
 :root {
   /* ===== Classic Theme ===== */
   --classicTheme-bg: #fffdf7;
@@ -113,7 +115,8 @@ header img {
   stroke: transparent;
 }
 
-#Mouse_Text_Wrapper {
+#Mouse_Text_Wrapper,
+#Cat_Text_Wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,6 +128,13 @@ header img {
   overflow: hidden;
 }
 
+#Cat_Text_Wrapper {
+  font-family: "Sniglet", cursive, serif;
+  transform: rotate(270deg);
+  padding-top: 30%;
+  /* border: 2px solid black; */
+}
+
 #Mouse_Text {
   word-wrap: break-word;
   line-height: 1.1;
@@ -133,6 +143,10 @@ header img {
   color: black;
   font-family: "Walter Turncoat", cursive, serif;
   font-weight: 700;
+}
+
+#Cat_Text_Area {
+  fill: transparent;
 }
 
 /* ====================================================== */

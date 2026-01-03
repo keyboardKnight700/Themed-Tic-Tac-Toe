@@ -55,46 +55,62 @@ export function useMouseBlinkAnimation(gameboardSvg) {
   }, [gameboardSvg]);
 }
 
-export function useMouseTextAnimation(gameboardSvg) {
+export function useMouseAndCatTextAnimation(id, gameboardSvg) {
   useEffect(() => {
-    if (!gameboardSvg.current) return;
+    if (!gameboardSvg) return;
+    let config;
     const svg = gameboardSvg.current;
     let componentStillActive = true;
     let timerId;
 
-    const MouseSpeechBubble = svg.querySelector("#Mouse_Speech_Bubble");
-    const MouseTextArea = svg.querySelector("#Mouse_Text_Area");
-    const mouseTextContainer = svg.querySelector("#Mouse_Text_Container"); // foreignObject
-    const mouseText = svg.querySelector("#Mouse_Text");
+    if (id === "mouse") {
+      config = {
+        speechBubble: "#Mouse_Speech_Bubble",
+        textArea: "#Mouse_Text_Area",
+        textContainer: "#Mouse_Text_Container",
+        text: "#Mouse_Text",
+        textArray: [
+          "You want a piece of my cheese?",
+          "Let's make a cheese cake!",
+          "Cheese prices are gone high :(",
+        ],
+      };
+    } else {
+      config = {
+        textArea: "#Cat_Text_Area",
+        textContainer: "#Cat_Text_Container",
+        text: "#Cat_Text",
+        textArray: ["Hi", "I ❤️ U!"],
+      };
+    }
+
+    const speechBubble = svg.querySelector(config.speechBubble);
+    const textArea = svg.querySelector(config.textArea);
+    const textContainer = svg.querySelector(config.textContainer); // foreignObject
+    const text = svg.querySelector(config.text);
 
     if (
-      !MouseTextArea ||
-      !mouseTextContainer ||
-      !mouseText ||
-      !mouseTextContainer
+      !textArea ||
+      !textContainer ||
+      !text ||
+      (id === "mouse" && !speechBubble)
     )
       return;
 
     async function generateText() {
-      const textArray = [
-        "You want a piece of my cheese?",
-        "Let's make a cheese cake!",
-        "Cheese prices are gone high :(",
-      ];
-
-      MouseSpeechBubble.style.fill = "black";
+      if (speechBubble) speechBubble.style.fill = "black";
 
       await new Promise((resolve) => setTimeout(resolve, 500));
       if (!componentStillActive) return;
 
-      mouseText.textContent =
-        textArray[Math.floor(Math.random() * textArray.length)];
+      text.textContent =
+        config.textArray[Math.floor(Math.random() * config.textArray.length)];
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
       if (!componentStillActive) return;
 
-      MouseSpeechBubble.style.fill = "transparent";
-      mouseText.textContent = "";
+      if (speechBubble) speechBubble.style.fill = "transparent";
+      text.textContent = "";
     }
 
     function loop() {
@@ -110,15 +126,15 @@ export function useMouseTextAnimation(gameboardSvg) {
 
     loop();
 
-    const textBox = MouseTextArea.getBBox();
-    mouseTextContainer.setAttribute("x", textBox.x);
-    mouseTextContainer.setAttribute("y", textBox.y);
-    mouseTextContainer.setAttribute("width", textBox.width);
-    mouseTextContainer.setAttribute("height", textBox.height);
+    const textBox = textArea.getBBox();
+    textContainer.setAttribute("x", textBox.x);
+    textContainer.setAttribute("y", textBox.y);
+    textContainer.setAttribute("width", textBox.width);
+    textContainer.setAttribute("height", textBox.height);
 
     return () => {
       componentStillActive = false;
       clearTimeout(timerId);
     };
-  }, [gameboardSvg]);
+  }, [id, gameboardSvg]);
 }
