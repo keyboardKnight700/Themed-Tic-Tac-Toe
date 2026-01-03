@@ -149,6 +149,25 @@ header img {
   fill: transparent;
 }
 
+.settingsBtn {
+  fill: rgb(94, 4, 4);
+
+  animation: rotate 5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
 /* ====================================================== */
 /* =================== GAME SETTINGS ==================== */
 /* ======================================================*/
