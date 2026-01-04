@@ -40,6 +40,9 @@ header {
   width: 100%;
   max-height: 20vh;
   position: relative;
+
+  margin-bottom: 25px;
+  margin-top: 12px;
 }
 
 header h1 {
@@ -166,6 +169,40 @@ header img {
   75% {
     transform: rotate(-10deg);
   }
+}
+
+#Cat_Body {
+  fill: #4e4e4eca;
+}
+
+#Mouse_Skin,
+#Mouse_Tail_Dots {
+  fill: #4e4e4ef9;
+}
+
+#Mouse_Ears {
+  fill: #fa969a;
+  stroke: #fa969a;
+}
+#Mouse_Nose {
+  fill: #836745;
+}
+
+#Cheese .cls-12 {
+  fill: #ffe300;
+}
+
+#Cheese_Holes path {
+  fill: #320112;
+}
+
+#Play_BTN {
+  fill: #ffc107;
+  cursor: pointer;
+}
+
+#Play_BTN .cls-12 {
+  fill: #4b4949;
 }
 
 /* ====================================================== */
