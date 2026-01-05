@@ -205,6 +205,31 @@ header img {
   fill: #4b4949;
 }
 
+.headerTitle {
+  background: linear-gradient(
+    90deg,
+    #2563eb 0%,
+    #d98c5f 25%,
+    #fffdf7 50%,
+    #ffc107 75%,
+    #4b4949 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 3s linear infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 /* ====================================================== */
 /* =================== GAME SETTINGS ==================== */
 /* ======================================================*/
