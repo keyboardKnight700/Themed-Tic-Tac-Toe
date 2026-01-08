@@ -260,7 +260,7 @@ header img {
   z-index: 5;
   width: 100vw;
   height: 100vh;
-  background-color: #cdc1c1;
+  background-color: #fffdf1;
   /* border: 2px solid blue; */
 
   animation: overlay 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -313,7 +313,7 @@ header img {
   height: 80vh;
   margin-right: 40px;
   padding: 30px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .settingsBtns .settingBtn {
@@ -332,6 +332,8 @@ header img {
   fill: #4e4e4e;
   font-family: "Walter Turncoat", "Luckiest Guy", "Fredericka the Great",
     cursive, serif !important;
+
+  user-select: none;
 }
 
 .settingsContent {
@@ -339,5 +341,18 @@ header img {
   width: 100px;
   height: 100px;
 
-  border: 4px solid yellow;
+  /* border: 4px solid yellow; */
+}
+
+.settingBtn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settingBtn:hover {
+  transform: translateX(10px) scale(1.02);
+  filter: brightness(1.08) drop-shadow(0 4px 12px rgba(100, 170, 210, 0.45));
+}
+
+.settingBtn:active {
+  transform: translateX(10px) scale(0.98);
 }
