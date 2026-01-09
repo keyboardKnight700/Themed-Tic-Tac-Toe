@@ -7,43 +7,53 @@ import overlayCloseBtnBg from "../../assets/overlayCloseBtnBg.svg";
 
 import { useState, useEffect } from "react";
 
+import ClassicGameboardIcon from "../../assets/Classic_Gameboard_Icon.svg?react";
+import GoGameboardIcon from "../../assets/Go_Gameboard_Icon.svg?react";
+import ClassicThemeIcon from "../../assets/ClassicThemeIcon.svg?react";
+
 export function SettingsBtns() {
   const [overlay, setOverlay] = useState(false);
-  const [activeBtn, setActiveBtn] = useState("");
+  const [hoveredBtn, setHoveredBtn] = useState("");
+  const [content, setContent] = useState("type");
+
+  console.log(ClassicThemeIcon);
   const Settings_Buttons = [
     {
       id: "type",
       classes: "settingBtn settingsTypeBtn",
-      Component: SettingsTypeBtn,
+      Button: SettingsTypeBtn,
     },
     {
       id: "theme",
       classes: "settingBtn settingsThemeBtn",
-      Component: SettingsThemeBtn,
+      Button: SettingsThemeBtn,
     },
     {
       id: "piece",
       classes: "settingBtn settingsPieceBtn",
-      Component: SettingsPieceBtn,
+      Button: SettingsPieceBtn,
     },
     {
       id: "ai",
       classes: "settingBtn settingsAiOrFriendBtn",
-      Component: SettingsAiOrFriendBtn,
+      Button: SettingsAiOrFriendBtn,
     },
   ];
 
   useEffect(() => {
-    if (overlay) {
-      setActiveBtn("type");
+    if (overlay && content === "type") {
+      setHoveredBtn("type");
     }
-  }, [overlay]);
+  }, [overlay, content]);
 
   return (
     <>
       <SettingsMainBtn
         className="settingsMainBtn"
-        onClick={() => setOverlay(true)}
+        onClick={() => {
+          setOverlay(true);
+          setContent("type");
+        }}
       />
 
       {overlay && (
@@ -56,15 +66,30 @@ export function SettingsBtns() {
             />
           </button>
 
-          <div className="settingsContent"></div>
+          <div className="settingsContent">
+            {content === "type" && (
+              <>
+                <div className="iconFrame square">
+                  <ClassicGameboardIcon className="ClassicGameboardIcon" />
+                  <span>Classic</span>
+                </div>
+
+                <div className="iconFrame square">
+                  <GoGameboardIcon className="GoGameboardIcon" />
+                  <span>Go</span>
+                </div>
+              </>
+            )}
+          </div>
 
           <div className="settingsBtnsContainer">
-            {Settings_Buttons.map(({ id, classes, Component }) => {
+            {Settings_Buttons.map(({ id, classes, Button }) => {
               return (
-                <Component
+                <Button
                   key={id}
-                  className={`${classes} ${activeBtn === id ? "active" : ""}`}
-                  onMouseEnter={() => setActiveBtn(id)}
+                  className={`${classes} ${hoveredBtn === id ? "hovered" : ""}`}
+                  onMouseEnter={() => setHoveredBtn(id)}
+                  onClick={() => setContent(id)}
                 />
               );
             })}
