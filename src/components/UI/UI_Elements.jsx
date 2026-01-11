@@ -9,14 +9,18 @@ import { useState, useEffect } from "react";
 
 import ClassicGameboardIcon from "../../assets/Classic_Gameboard_Icon.svg?react";
 import GoGameboardIcon from "../../assets/Go_Gameboard_Icon.svg?react";
-import ClassicThemeIcon from "../../assets/ClassicThemeIcon.svg?react";
+import christmasBall from "../../assets/christmasBall.svg";
+import gingerbread from "../../assets/gingerbread.svg";
+import dog from "../../assets/dog.svg";
+import star from "../../assets/star.svg";
+import spider from "../../assets/spider.svg";
+import spiderWeb from "../../assets/spiderWeb.svg";
 
 export function SettingsBtns() {
   const [overlay, setOverlay] = useState(false);
   const [hoveredBtn, setHoveredBtn] = useState("");
   const [content, setContent] = useState("type");
 
-  console.log(ClassicThemeIcon);
   const Settings_Buttons = [
     {
       id: "type",
@@ -77,6 +81,31 @@ export function SettingsBtns() {
                 <div className="iconFrame square">
                   <GoGameboardIcon className="GoGameboardIcon" />
                   <span>Go</span>
+                </div>
+              </>
+            )}
+
+            {content === "theme" && (
+              <>
+                <div className="iconFrame rectangle classic">
+                  <img src={star} className="star" alt="" />
+                  <span>Classic</span>
+                  <img src={dog} className="dog" alt="" />
+                </div>
+
+                <div className="iconFrame rectangle christmas">
+                  <img src={christmasBall} className="christmasBall" alt="" />
+                  <div>
+                    <span>Christmas</span>
+                    <img src={gingerbread} alt="" />
+                  </div>
+                  <img src={gingerbread} className="gingerbreadBig" alt="" />
+                </div>
+
+                <div className="iconFrame rectangle halloween">
+                  <img src={spider} alt="" />
+                  <span>Halloween</span>
+                  <img src={spiderWeb} alt="" />
                 </div>
               </>
             )}
