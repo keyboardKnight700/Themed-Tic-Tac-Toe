@@ -5,7 +5,7 @@ import GameSettings from "./components/GameSettings/GameSettings";
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Gameboard />
       <GameSettings />
     </>

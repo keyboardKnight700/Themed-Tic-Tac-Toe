@@ -1,21 +1,4 @@
-.gameSettingsContainer {
-  color: white;
-  position: relative;
-}
-
-.settingsMainBtn {
-  position: fixed;
-  bottom: 1.5vh;
-  right: 1.5vh;
-  max-height: 12vh;
-  cursor: pointer;
-}
-
-.settingsMainBtn {
-  fill: rgb(94, 4, 4);
-
-  animation: rotate 5s ease-in-out infinite;
-}
+/* ======================ANIMATIONS START======================*/
 
 @keyframes rotate {
   0%,
@@ -28,24 +11,6 @@
   75% {
     transform: rotate(-10deg);
   }
-}
-
-.settingsOverlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  width: 100vw;
-  height: 100vh;
-  background-color: #fffdf1;
-
-  /* border: 2px solid blue; */
-
-  animation: overlay 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform-origin: bottom right;
 }
 
 @keyframes overlay {
@@ -68,6 +33,43 @@
   }
 }
 
+/* ======================ANIMATIONS END======================*/
+
+.gameSettingsContainer {
+  color: white;
+  position: relative;
+}
+
+.settingsMainBtn {
+  position: fixed;
+  bottom: 1.5vh;
+  right: 1.5vh;
+  height: 12vh;
+  max-height: 70px;
+  cursor: pointer;
+
+  fill: rgb(94, 4, 4);
+  animation: rotate 5s ease-in-out infinite;
+}
+
+.settingsOverlay {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fffdf1;
+  overflow-y: auto;
+
+  animation: overlay 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom right;
+}
+
 .overlayCloseBtn {
   background-color: transparent;
   border: none;
@@ -78,33 +80,30 @@
 }
 
 .overlayCloseBtnBg {
-  width: 8vh;
-  height: 8vh;
+  width: 50px;
+  height: 50px;
 }
 
 .settingsBtnsContainer {
-  flex-basis: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;
-  gap: 0;
+  align-items: center;
 
-  width: 40vw;
-  height: 80vh;
-  margin-right: 40px;
-  padding: 30px;
-  /* border: 2px solid red; */
+  width: 100%;
+  height: auto;
+  gap: 15px;
+  padding: 20px;
+  margin: 0;
+  flex-basis: auto;
 }
 
 .settingsBtnsContainer .settingBtn {
-  width: 30vh;
-  height: 20vh;
-
-  margin-block: -20px;
+  width: 220px;
+  height: 110px;
+  margin-block: -25px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* border: 1px solid blue; */
 }
 
 .settingsThemeBtn .themeText,
@@ -129,14 +128,16 @@
 }
 
 .settingsContent {
-  flex-basis: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
 
-  /* border: 4px solid yellow; */
+  /* [CHANGED] Reset sizes for mobile */
+  width: 100%;
+  flex-basis: auto;
+  margin-bottom: 20px;
 }
 
 .iconFrame {
@@ -159,8 +160,8 @@
 }
 
 .iconFrame.square {
-  width: 30vh;
-  height: 30vh;
+  width: 180px;
+  height: 180px;
 }
 
 .iconFrame .ClassicGameboardIcon span,
@@ -257,4 +258,75 @@
   position: absolute;
   top: 0;
   right: -1%;
+}
+
+@media only screen and (min-width: 992px) {
+  .settingsOverlay {
+    flex-direction: row;
+    overflow-y: visible;
+  }
+
+  .settingsMainBtn {
+    max-height: 12vh;
+  }
+
+  .overlayCloseBtn {
+    top: 20px;
+    right: 20px;
+  }
+  .overlayCloseBtnBg {
+    width: 8vh;
+    height: 8vh;
+  }
+
+  /* 4. Buttons Container */
+  .settingsBtnsContainer {
+    flex-basis: 30%;
+    align-items: end; /* Align right */
+    width: 40vw;
+    height: 80vh;
+    margin-right: 40px;
+    padding: 30px;
+    gap: 0;
+  }
+
+  .settingsBtnsContainer .settingBtn {
+    width: 30vh; /* [RESTORED] VH sizing */
+    height: 20vh;
+    margin-block: -20px;
+  }
+
+  /* [NEW] Hover effects only on Desktop to prevent sticky touch states */
+  .settingBtn.hovered {
+    transform: translateX(10px) scale(1.02);
+    filter: brightness(1.08) drop-shadow(0 4px 12px rgba(100, 170, 210, 0.45));
+  }
+
+  .settingBtn:active {
+    transform: translateX(10px) scale(0.98);
+  }
+
+  /* 5. Content / Preview Area */
+  .settingsContent {
+    flex-basis: 50%;
+    margin-bottom: 0;
+  }
+
+  /* 6. Icon Frames */
+  .iconFrame {
+    font-size: 1.4rem;
+    border: 4px solid black;
+    padding: 20px;
+  }
+
+  .iconFrame.square {
+    width: 30vh;
+    height: 30vh;
+  }
+
+  .iconFrame.rectangle {
+    width: 50vh;
+    height: 15vh;
+    max-width: none;
+  }
 }

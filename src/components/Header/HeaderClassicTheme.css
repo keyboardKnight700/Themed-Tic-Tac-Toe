@@ -1,15 +1,41 @@
+/* ======================ANIMATIONS START======================*/
+
+.headerTitle {
+  background: linear-gradient(
+    90deg,
+    #2563eb 0%,
+    #d98c5f 25%,
+    #fffdf7 50%,
+    #ffc107 75%,
+    #4b4949 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+  animation: gradient-flow 3s linear infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ======================ANIMATIONS END======================*/
+
 header {
-  flex-shrink: 0;
   display: grid;
   grid-template-columns: minmax(auto, auto) 1fr minmax(auto, auto);
   place-items: center;
 
   width: 100%;
-  max-height: 20vh;
+  max-height: auto;
   position: relative;
-
-  margin-bottom: 25px;
-  margin-top: 12px;
 }
 
 header h1 {
@@ -18,7 +44,7 @@ header h1 {
   text-align: center;
   white-space: nowrap;
   font-family: "Fredericka the Great", "Walter Turncoat", cursive, serif;
-  font-size: clamp(2rem, 8vh, 6rem);
+  font-size: clamp(2rem, 6vh, 6rem);
   color: #4b4949;
   letter-spacing: -0.025em;
   padding: 1vh 2vw;

@@ -1,22 +1,17 @@
-:root {
-  --classicTheme-bg: #fffdf7;
-  --classicTheme-text: #4b4949;
-  --classicTheme-accent: #ffc107;
-  --classicTheme-accent-hover: #d98c5f;
-}
+/* --------------------SCREENS FROM 0px TO 575px-------------------- */
 
-.gamebaordContainer {
+.gamebaordContainerClassicTheme {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  min-height: 0;
-  padding: 2vh 0;
+  width: 100%;
+  padding: 0 15px;
+  margin-top: 20px;
 }
 
-.gamebaordContainer .gameboard {
-  width: min(60vw, 60vh);
+.gamebaordContainerClassicTheme .gameboardClassicTheme {
+  width: 95%;
   height: auto;
   max-height: 100%;
   object-fit: contain;
@@ -119,28 +114,8 @@
   fill: #4b4949;
 }
 
-.headerTitle {
-  background: linear-gradient(
-    90deg,
-    #2563eb 0%,
-    #d98c5f 25%,
-    #fffdf7 50%,
-    #ffc107 75%,
-    #4b4949 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  user-select: none;
-  animation: gradient-flow 3s linear infinite;
-}
-
-@keyframes gradient-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
+@media only screen and (min-width: 992px) {
+  .gamebaordContainerClassicTheme .gameboardClassicTheme {
+    width: min(60vw, 60vh);
   }
 }

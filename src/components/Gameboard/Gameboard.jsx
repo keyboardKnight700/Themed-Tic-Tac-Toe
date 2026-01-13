@@ -13,8 +13,8 @@ export default function Gameboard() {
   useMouseAndCatTextAnimation("mouse", gameboardSvg);
 
   return (
-    <div className="gamebaordContainer" ref={gameboardSvg}>
-      <GameboardSVG className="gameboard" />
+    <div className="gamebaordContainerClassicTheme" ref={gameboardSvg}>
+      <GameboardSVG className="gameboardClassicTheme" />
     </div>
   );
 }
