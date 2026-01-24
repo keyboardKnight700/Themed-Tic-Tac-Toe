@@ -18,6 +18,46 @@ import spider from "../../assets/spider.svg";
 import spiderWeb from "../../assets/spiderWeb.svg";
 import { useSettingsPanel } from "./UI_Hooks";
 
+//game pieces
+const GAME_PIECES = [
+  {
+    name: "letterX",
+    url: new URL("../../assets/letterXPiece.svg", import.meta.url).href,
+  },
+  {
+    name: "cheese",
+    url: new URL("../../assets/cheesePiece.svg", import.meta.url).href,
+  },
+  {
+    name: "smiley",
+    url: new URL("../../assets/smileyPiece.svg", import.meta.url).href,
+  },
+  {
+    name: "cupcake",
+    url: new URL("../../assets/cupcakePiece.svg", import.meta.url).href,
+  },
+  {
+    name: "paw",
+    url: new URL("../../assets/pawPiece.svg", import.meta.url).href,
+  },
+  {
+    name: "moon",
+    url: new URL("../../assets/moonPiece.svg", import.meta.url).href,
+  },
+  {
+    name: "cat",
+    url: new URL("../../assets/catPiece.svg", import.meta.url).href,
+  },
+  {
+    name: "letterO",
+    url: new URL("../../assets/letterOPiece.svg", import.meta.url).href,
+  },
+  {
+    name: "mouse",
+    url: new URL("../../assets/mousePiece.svg", import.meta.url).href,
+  },
+];
+
 function SettingsPanelLauncherDesktop({ handleOpenOverlay, handleContent }) {
   return (
     <SettingsPanelLauncher
@@ -82,6 +122,16 @@ function SettingsContent({ content }) {
             <img src={spiderWeb} alt="" />
           </div>
         </>
+      )}
+
+      {content === "piece" && (
+        <div className="pieceContainer">
+          {GAME_PIECES.map((piece) => (
+            <div key={piece.name} className="frame">
+              <img src={piece.url} className="gamePiece" alt={piece.name} />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

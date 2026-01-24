@@ -1,3 +1,7 @@
+body {
+  font-size: 62.5%;
+}
+
 /* ======================ANIMATIONS START======================*/
 
 @keyframes rotate {
@@ -326,4 +330,17 @@
     height: 15vh;
     max-width: none;
   }
+}
+
+.pieceContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 6rem);
+  grid-template-rows: repeat(3, 6rem);
+
+  gap: 1rem;
+}
+
+.gamePiece {
+  width: 95%;
+  cursor: pointer;
 }
