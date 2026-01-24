@@ -40,7 +40,7 @@
   position: relative;
 }
 
-.settingsMainBtn {
+.SettingsPanelLauncherDesktop {
   position: fixed;
   bottom: 1.5vh;
   right: 1.5vh;
@@ -79,12 +79,13 @@
   cursor: pointer;
 }
 
-.overlayCloseBtnBg {
+.overlayCloseIcon {
   width: 50px;
   height: 50px;
 }
 
-.settingsBtnsContainer {
+.settingsTabsContainer {
+  flex-basis: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,10 +96,11 @@
   gap: 15px;
   padding: 20px;
   margin: 0;
-  flex-basis: auto;
+
+  /* border: 2px solid black; */
 }
 
-.settingsBtnsContainer .settingBtn {
+.settingsTabsContainer .settingTab {
   width: 220px;
   height: 110px;
   margin-block: -25px;
@@ -106,23 +108,23 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.settingsThemeBtn .themeText,
-.settingsTypeBtn .typeText,
-.settingsPieceBtn .pieceText,
-.settingsAiOrFriendBtn .AiOrFriendText {
+.settingsThemeTab .themeText,
+.settingsTypeTab .typeText,
+.settingsPieceTab .pieceText,
+.settingsAiOrFriendTab .AiOrFriendText {
   fill: #4e4e4e;
-  font-family: "Walter Turncoat", "Luckiest Guy", "Fredericka the Great",
-    cursive, serif !important;
+  font-family:
+    "Walter Turncoat", "Luckiest Guy", "Fredericka the Great", cursive, serif !important;
 
   user-select: none;
 }
 
-.settingBtn.hovered {
+.settingTab.hovered {
   transform: translateX(10px) scale(1.02);
   filter: brightness(1.08) drop-shadow(0 4px 12px rgba(100, 170, 210, 0.45));
 }
 
-.settingBtn:active {
+.settingTab:active {
   transform: translateX(10px) scale(0.98);
   /* background-color: gold; */
 }
@@ -134,13 +136,12 @@
   align-items: center;
   gap: 20px;
 
-  /* [CHANGED] Reset sizes for mobile */
   width: 100%;
   flex-basis: auto;
   margin-bottom: 20px;
 }
 
-.iconFrame {
+.frame {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,8 +151,8 @@
   color: #4b4949;
 
   font-size: 1.4rem;
-  font-family: "Walter Turncoat", "Luckiest Guy", "Fredericka the Great",
-    cursive, serif;
+  font-family:
+    "Walter Turncoat", "Luckiest Guy", "Fredericka the Great", cursive, serif;
 
   border: 4px solid black;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -159,34 +160,34 @@
   overflow: visible;
 }
 
-.iconFrame.square {
+.frame.square {
   width: 180px;
   height: 180px;
 }
 
-.iconFrame .ClassicGameboardIcon span,
-.iconFrame .GoGameboardIcon span {
+.frame .ClassicGameboardIcon span,
+.frame .GoGameboardIcon span {
   flex-basis: 10%;
   user-select: none;
 }
 
-.iconFrame.rectangle {
+.frame.rectangle {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-items: center;
   width: 50vh;
   height: 15vh;
-  font-family: "Luckiest Guy", "Walter Turncoat", "Fredericka the Great",
-    cursive, serif;
+  font-family:
+    "Luckiest Guy", "Walter Turncoat", "Fredericka the Great", cursive, serif;
 }
-.iconFrame.rectangle img {
+.frame.rectangle img {
   /*   width: 4vh;
   height: auto; */
   object-fit: cover;
 }
 
-.iconFrame.rectangle.classic {
+.frame.rectangle.classic {
   position: relative;
 }
 
@@ -203,7 +204,7 @@
   left: 70%;
 }
 
-.iconFrame.rectangle.christmas {
+.frame.rectangle.christmas {
   position: relative;
   padding: 0;
 }
@@ -241,7 +242,7 @@
   height: auto;
 }
 
-.iconFrame.rectangle.halloween {
+.frame.rectangle.halloween {
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -279,10 +280,9 @@
     height: 8vh;
   }
 
-  /* 4. Buttons Container */
   .settingsBtnsContainer {
     flex-basis: 30%;
-    align-items: end; /* Align right */
+    align-items: end;
     width: 40vw;
     height: 80vh;
     margin-right: 40px;
@@ -291,12 +291,11 @@
   }
 
   .settingsBtnsContainer .settingBtn {
-    width: 30vh; /* [RESTORED] VH sizing */
+    width: 30vh;
     height: 20vh;
     margin-block: -20px;
   }
 
-  /* [NEW] Hover effects only on Desktop to prevent sticky touch states */
   .settingBtn.hovered {
     transform: translateX(10px) scale(1.02);
     filter: brightness(1.08) drop-shadow(0 4px 12px rgba(100, 170, 210, 0.45));
@@ -306,25 +305,23 @@
     transform: translateX(10px) scale(0.98);
   }
 
-  /* 5. Content / Preview Area */
   .settingsContent {
     flex-basis: 50%;
     margin-bottom: 0;
   }
 
-  /* 6. Icon Frames */
-  .iconFrame {
+  .frame {
     font-size: 1.4rem;
     border: 4px solid black;
     padding: 20px;
   }
 
-  .iconFrame.square {
+  .frame.square {
     width: 30vh;
     height: 30vh;
   }
 
-  .iconFrame.rectangle {
+  .frame.rectangle {
     width: 50vh;
     height: 15vh;
     max-width: none;
