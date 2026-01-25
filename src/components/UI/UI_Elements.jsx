@@ -1,62 +1,13 @@
 import SettingsPanelLauncher from "../../assets/SettingsPanelLauncher.svg?react";
 import overlayCloseIcon from "../../assets/overlayCloseIcon.svg";
-
-import SettingsThemeTab from "../../assets/SettingsBtnTheme.svg?react";
-import SettingsTypeTab from "../../assets/SettingsBtnType.svg?react";
-import SettingsPieceTab from "../../assets/SettingsBtnPiece.svg?react";
-import SettingsAiOrFriendTab from "../../assets/SettingsBtnAiOrFriend.svg?react";
+import { useSettingsPanel } from "./UI_Hooks";
+import SketchyFrame from "../SketchyFrame";
 
 import { useState, useEffect } from "react";
-
-import ClassicGameboardIcon from "../../assets/Classic_Gameboard_Icon.svg?react";
-import GoGameboardIcon from "../../assets/Go_Gameboard_Icon.svg?react";
-import christmasBall from "../../assets/christmasBall.svg";
-import gingerbread from "../../assets/gingerbread.svg";
-import dog from "../../assets/dog.svg";
-import star from "../../assets/star.svg";
-import spider from "../../assets/spider.svg";
-import spiderWeb from "../../assets/spiderWeb.svg";
-import { useSettingsPanel } from "./UI_Hooks";
-
-//game pieces
-const GAME_PIECES = [
-  {
-    name: "letterX",
-    url: new URL("../../assets/letterXPiece.svg", import.meta.url).href,
-  },
-  {
-    name: "cheese",
-    url: new URL("../../assets/cheesePiece.svg", import.meta.url).href,
-  },
-  {
-    name: "smiley",
-    url: new URL("../../assets/smileyPiece.svg", import.meta.url).href,
-  },
-  {
-    name: "cupcake",
-    url: new URL("../../assets/cupcakePiece.svg", import.meta.url).href,
-  },
-  {
-    name: "paw",
-    url: new URL("../../assets/pawPiece.svg", import.meta.url).href,
-  },
-  {
-    name: "moon",
-    url: new URL("../../assets/moonPiece.svg", import.meta.url).href,
-  },
-  {
-    name: "cat",
-    url: new URL("../../assets/catPiece.svg", import.meta.url).href,
-  },
-  {
-    name: "letterO",
-    url: new URL("../../assets/letterOPiece.svg", import.meta.url).href,
-  },
-  {
-    name: "mouse",
-    url: new URL("../../assets/mousePiece.svg", import.meta.url).href,
-  },
-];
+import { TYPE_CONTENTS } from "../../config/gameData";
+import { THEME_CONTENTS } from "../../config/gameData";
+import { GAME_PIECES } from "../../config/gameData";
+import { SETTINGS_TABS } from "../../config/gameData";
 
 function SettingsPanelLauncherDesktop({ handleOpenOverlay, handleContent }) {
   return (
@@ -87,49 +38,74 @@ function SettingsContent({ content }) {
     <div className="settingsContent">
       {content === "type" && (
         <>
-          <div className="frame square">
-            <ClassicGameboardIcon className="ClassicGameboardIcon" />
-            <span>Classic</span>
-          </div>
-
-          <div className="frame square">
-            <GoGameboardIcon className="GoGameboardIcon" />
-            <span>Go</span>
-          </div>
+          {TYPE_CONTENTS.map((content) => (
+            <SketchyFrame key={content.name} classes="typeContents">
+              <img
+                src={content.imageSource}
+                alt={content.name}
+                className={content.name}
+              />
+              <span>{content.text}</span>
+            </SketchyFrame>
+          ))}
         </>
       )}
 
       {content === "theme" && (
         <>
-          <div className="frame rectangle classic">
-            <img src={star} className="star" alt="" />
-            <span>Classic</span>
-            <img src={dog} className="dog" alt="" />
-          </div>
-
-          <div className="frame rectangle christmas">
-            <img src={christmasBall} className="christmasBall" alt="" />
-            <div>
-              <span>Christmas</span>
-              <img src={gingerbread} alt="" />
-            </div>
-            <img src={gingerbread} className="gingerbreadBig" alt="" />
-          </div>
-
-          <div className="frame rectangle halloween">
-            <img src={spider} alt="" />
-            <span>Halloween</span>
-            <img src={spiderWeb} alt="" />
-          </div>
+          {THEME_CONTENTS.map((theme) =>
+            theme.name === "christmas" ? (
+              <SketchyFrame
+                key={theme.name}
+                classes={`rectangle ${theme.name}`}
+              >
+                <img
+                  src={theme.images[0].source}
+                  alt={theme.images[0].alt}
+                  className={theme.images[0].class}
+                />
+                <div>
+                  <span className="christ">{theme.text}</span>
+                  <img
+                    src={theme.images[1].source}
+                    alt={theme.images[1].alt}
+                    className={theme.images[1].class}
+                  />
+                </div>
+                <img
+                  src={theme.images[2].source}
+                  alt={theme.images[2].alt}
+                  className={theme.images[2].class}
+                />
+              </SketchyFrame>
+            ) : (
+              <SketchyFrame
+                key={theme.name}
+                classes={`rectangle ${theme.name}`}
+              >
+                <img
+                  src={theme.images[0].source}
+                  alt={theme.images[0].alt}
+                  className={theme.images[0].class}
+                />
+                <span>{theme.text}</span>
+                <img
+                  src={theme.images[1].source}
+                  alt={theme.images[1].alt}
+                  className={theme.images[1].class}
+                />
+              </SketchyFrame>
+            ),
+          )}
         </>
       )}
 
       {content === "piece" && (
         <div className="pieceContainer">
           {GAME_PIECES.map((piece) => (
-            <div key={piece.name} className="frame">
+            <SketchyFrame key={piece.name}>
               <img src={piece.url} className="gamePiece" alt={piece.name} />
-            </div>
+            </SketchyFrame>
           ))}
         </div>
       )}
@@ -169,29 +145,6 @@ export function SettingsPanel() {
     handleHoveredTab,
     handleContent,
   } = useSettingsPanel();
-
-  const SETTINGS_TABS = [
-    {
-      id: "type",
-      classes: "settingTab settingsTypeTab",
-      Button: SettingsTypeTab,
-    },
-    {
-      id: "theme",
-      classes: "settingTab settingsThemeTab",
-      Button: SettingsThemeTab,
-    },
-    {
-      id: "piece",
-      classes: "settingTab settingsPieceTab",
-      Button: SettingsPieceTab,
-    },
-    {
-      id: "ai",
-      classes: "settingTab settingsAiOrFriendTab",
-      Button: SettingsAiOrFriendTab,
-    },
-  ];
 
   useEffect(() => {
     if (overlay && content === "type") {

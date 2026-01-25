@@ -2,13 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 
-/* export default defineConfig({
-  plugins: [react(), svgr()],
-});
-
- */
-
 export default defineConfig({
+  base: "/Themed-Tic-Tac-Toe/",
   plugins: [
     react(),
     svgr({
@@ -20,7 +15,6 @@ export default defineConfig({
               name: "preset-default",
               params: {
                 overrides: {
-                  // Disable cleanupIds so it doesn't clash with prefixIds
                   cleanupIds: false,
                 },
               },

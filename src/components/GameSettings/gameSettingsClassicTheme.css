@@ -40,7 +40,6 @@ body {
 /* ======================ANIMATIONS END======================*/
 
 .gameSettingsContainer {
-  color: white;
   position: relative;
 }
 
@@ -134,50 +133,47 @@ body {
 }
 
 .settingsContent {
+  flex-basis: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
 
-  width: 100%;
-  flex-basis: auto;
   margin-bottom: 20px;
+  /* border: 2px solid black; */
 }
 
 .frame {
+  border: 4px solid black;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  color: #4b4949;
+}
+
+.typeContents {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 
-  color: #4b4949;
-
-  font-size: 1.4rem;
-  font-family:
-    "Walter Turncoat", "Luckiest Guy", "Fredericka the Great", cursive, serif;
-
-  border: 4px solid black;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  padding: 20px;
-  overflow: visible;
+  width: 170px;
+  height: 170px;
 }
 
-.frame.square {
-  width: 180px;
-  height: 180px;
+.typeContents img {
+  flex-basis: 70%;
+  object-fit: contain;
 }
 
-.frame .ClassicGameboardIcon span,
-.frame .GoGameboardIcon span {
+.frame .classic_gameboard span,
+.frame .go_gameboard span {
   flex-basis: 10%;
   user-select: none;
 }
 
 .frame.rectangle {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-items: center;
   width: 50vh;
@@ -185,10 +181,9 @@ body {
   font-family:
     "Luckiest Guy", "Walter Turncoat", "Fredericka the Great", cursive, serif;
 }
-.frame.rectangle img {
-  /*   width: 4vh;
-  height: auto; */
-  object-fit: cover;
+
+.frame.rectangle span {
+  margin: 0px auto;
 }
 
 .frame.rectangle.classic {
@@ -232,8 +227,7 @@ body {
 }
 
 .christmas div {
-  display: flex;
-  flex-direction: column;
+  margin: 0px auto;
   position: relative;
 }
 
@@ -265,13 +259,30 @@ body {
   right: -1%;
 }
 
+.pieceContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 6rem);
+  grid-template-rows: repeat(3, 6rem);
+
+  gap: 1rem;
+}
+
+.gamePiece {
+  width: 95%;
+  cursor: pointer;
+}
+
+/* =========================================================*/
+/* ======================MEDIA QUERIES======================*/
+/* =========================================================*/
+
 @media only screen and (min-width: 992px) {
   .settingsOverlay {
     flex-direction: row;
     overflow-y: visible;
   }
 
-  .settingsMainBtn {
+  .SettingsPanelLauncherDesktop {
     max-height: 12vh;
   }
 
@@ -279,12 +290,12 @@ body {
     top: 20px;
     right: 20px;
   }
-  .overlayCloseBtnBg {
+  .overlayCloseIcon {
     width: 8vh;
     height: 8vh;
   }
 
-  .settingsBtnsContainer {
+  .settingsTabsContainer {
     flex-basis: 30%;
     align-items: end;
     width: 40vw;
@@ -294,24 +305,28 @@ body {
     gap: 0;
   }
 
-  .settingsBtnsContainer .settingBtn {
+  .settingsTabsContainer .settingTab {
     width: 30vh;
     height: 20vh;
     margin-block: -20px;
   }
 
-  .settingBtn.hovered {
+  .settingTab.hovered {
     transform: translateX(10px) scale(1.02);
     filter: brightness(1.08) drop-shadow(0 4px 12px rgba(100, 170, 210, 0.45));
   }
 
-  .settingBtn:active {
+  .settingTab:active {
     transform: translateX(10px) scale(0.98);
   }
 
   .settingsContent {
     flex-basis: 50%;
     margin-bottom: 0;
+  }
+
+  .frame.typeContents {
+    padding: 30px;
   }
 
   .frame {
@@ -330,17 +345,4 @@ body {
     height: 15vh;
     max-width: none;
   }
-}
-
-.pieceContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 6rem);
-  grid-template-rows: repeat(3, 6rem);
-
-  gap: 1rem;
-}
-
-.gamePiece {
-  width: 95%;
-  cursor: pointer;
 }
