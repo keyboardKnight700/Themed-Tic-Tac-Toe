@@ -1,7 +1,7 @@
-import SettingsThemeTab from "../../assets/SettingsBtnTheme.svg?react";
-import SettingsTypeTab from "../../assets/SettingsBtnType.svg?react";
-import SettingsPieceTab from "../../assets/SettingsBtnPiece.svg?react";
-import SettingsAiOrFriendTab from "../../assets/SettingsBtnAiOrFriend.svg?react";
+import SettingsThemeTab from "../assets/SettingsBtnTheme.svg?react";
+import SettingsTypeTab from "../assets/SettingsBtnType.svg?react";
+import SettingsPieceTab from "../assets/SettingsBtnPiece.svg?react";
+import SettingsAiOrFriendTab from "../assets/SettingsBtnAiOrFriend.svg?react";
 
 import { getImageUrl } from "../utils/utils";
 
