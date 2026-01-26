@@ -6,7 +6,7 @@ export default function SettingsPanelLauncher({
 }) {
   return (
     <SettingsPanelLauncherDesktop
-      className="SettingsPanelLauncherDesktop"
+      className="SettingsPanelLauncher"
       onClick={() => {
         handleOpenSettingsPanel();
         handleContent("type");

@@ -7,7 +7,7 @@ export default function TypeContentsRenderer({ content, onSelect }) {
   return (
     <>
       {TYPE_CONTENTS.map((content) => (
-        <SketchyFrame key={content.name} classes="typeContents">
+        <SketchyFrame key={content.name} classes="square typeContents">
           <img
             src={content.imageSource}
             alt={content.name}

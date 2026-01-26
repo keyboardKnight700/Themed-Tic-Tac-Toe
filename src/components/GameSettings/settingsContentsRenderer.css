@@ -1,0 +1,18 @@
+.settingsContent {
+  flex-basis: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 20px;
+  /* border: 2px solid black; */
+}
+
+@media only screen and (min-width: 992px) {
+  .settingsContent {
+    flex-basis: 50%;
+    margin-bottom: 0;
+  }
+}

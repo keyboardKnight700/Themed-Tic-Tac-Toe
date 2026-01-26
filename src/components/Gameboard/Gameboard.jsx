@@ -1,8 +1,8 @@
 import GameboardSVG from "../../assets/Gameboard.svg?react";
 import { useRef, useEffect } from "react";
-import { useMousePupilsAnimation } from "../UI/UI_Hooks";
-import { useMouseBlinkAnimation } from "../UI/UI_Hooks";
-import { useMouseAndCatTextAnimation } from "../UI/UI_Hooks";
+import useMousePupilsAnimation from "../hooks/useMousePupilsAnimation";
+import useMouseBlinkAnimation from "../hooks/useMouseBlinkAnimation";
+import useMouseAndCatTextAnimation from "../hooks/useMouseAndCatTextAnimation";
 
 export default function Gameboard() {
   const gameboardSvg = useRef(null);

@@ -6,6 +6,9 @@
 
 /* ======================STYLES========================== */
 
+/* =======GENERAL STYLES======= */
+@import url("./components/sketchyFrame.css");
+
 /* =======CLASSIC THEME======= */
 @import url("./components/GameSettings/gameSettingsClassicTheme.css");
 @import url("./components/Header/HeaderClassicTheme.css");

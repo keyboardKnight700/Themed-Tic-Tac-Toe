@@ -1,0 +1,38 @@
+.frame {
+  border: 4px solid black;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  color: #4b4949;
+}
+
+.frame.rectangle {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 50vh;
+  height: 15vh;
+  font-family:
+    "Luckiest Guy", "Walter Turncoat", "Fredericka the Great", cursive, serif;
+}
+
+.frame.rectangle span {
+  margin: 0px auto;
+}
+
+@media only screen and (min-width: 992px) {
+  .frame {
+    font-size: 1.4rem;
+    border: 4px solid black;
+    padding: 20px;
+  }
+
+  .frame.square {
+    width: 30vh;
+    height: 30vh;
+  }
+
+  .frame.rectangle {
+    width: 50vh;
+    height: 15vh;
+    max-width: none;
+  }
+}

@@ -1,15 +1,15 @@
-import overlayCloseIcon from "../../assets/overlayCloseIcon.svg";
+import settingsPanelCloseIcon from "../../assets/settingsPanelCloseIcon.svg";
 
 export default function CloseSettingsPanel({ handleCloseSettingsPanel }) {
   return (
     <button
-      className="overlayCloseBtn"
+      className="settingsPanelCloseBtn"
       onClick={() => handleCloseSettingsPanel()}
     >
       <img
-        className="overlayCloseIcon"
-        src={overlayCloseIcon}
-        alt="x icon to close the window"
+        className="settingsPanelCloseIcon"
+        src={settingsPanelCloseIcon}
+        alt="close settings panel"
       />
     </button>
   );

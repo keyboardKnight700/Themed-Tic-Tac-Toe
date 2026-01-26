@@ -1,0 +1,24 @@
+.settingsPanelCloseBtn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.settingsPanelCloseIcon {
+  width: 50px;
+  height: 50px;
+}
+
+@media only screen and (min-width: 992px) {
+  .settingsPanelCloseBtn {
+    top: 20px;
+    right: 20px;
+  }
+  .settingsPanelCloseIcon {
+    width: 8vh;
+    height: 8vh;
+  }
+}
